@@ -19,3 +19,13 @@ variable "storageaccounttypes" {
   description = "Storage type for the virtual machine"
   default     = "Standard_LRS"
 }
+
+variable "skutiers" {
+  description = "sku tiers for app service"
+  default     = "Standard"
+}
+
+variable "skusizes" {
+  description = "sku sizes for app service"
+  default     = "S1"
+}
