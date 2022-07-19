@@ -1,7 +1,7 @@
 # Create Security Group to access linux
 resource "azurerm_network_security_group" "vm-nsg" {
   depends_on=[var.resourcename]
-  name                = "${var.prefix}-nsg"
+  name                = "${var.environmentname}-nsg"
   location            = var.environmentlocation
   resource_group_name = var.environmentname
   

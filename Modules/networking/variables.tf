@@ -1,7 +1,7 @@
-variable "prefix" {
-  description = "name of virtual network"
-  default     = "Me"
-}
+# variable "prefix" {
+#   description = "name of virtual network"
+#   default     = "Me"
+# }
 
 variable "environmentlocation" {
   description = "filled in module"

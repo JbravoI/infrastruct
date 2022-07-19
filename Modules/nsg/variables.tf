@@ -1,7 +1,7 @@
-variable "prefix" {
-  description = "name of resource"
-  default     = "Me"
-}
+# variable "prefix" {
+#   description = "name of resource"
+#   default     = "Me"
+# }
 
 variable "environmentlocation" {
   description = "filled in module"

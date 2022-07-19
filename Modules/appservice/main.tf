@@ -1,7 +1,7 @@
 # Creating App Sevice Plan
 resource "azurerm_service_plan" "appserviceplan" {
   depends_on=[var.resourcename]
-  name                = "${var.prefix}-appserviceplan"
+  name                = "${var.environmentname}-appserviceplan"
   location            = var.environmentlocation
   resource_group_name = var.environmentname
   os_type             = "Windows"
@@ -16,7 +16,7 @@ resource "azurerm_service_plan" "appserviceplan" {
 # Creating App Service
 resource "azurerm_windows_web_app" "appservice" {
   depends_on=[var.resourcename]
-  name                = "${var.prefix}-app-service"
+  name                = "${var.environmentname}-app-service"
   location            = var.environmentlocation
   resource_group_name = var.environmentname
   service_plan_id     = azurerm_service_plan.appserviceplan.id

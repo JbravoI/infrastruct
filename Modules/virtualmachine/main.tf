@@ -1,6 +1,6 @@
 resource "azurerm_linux_virtual_machine" "virtualmachine" {
   depends_on          = [var.resourcename]
-  name                = "${var.prefix}-vm"
+  name                = "${var.environmentname}-vm"
   resource_group_name = var.environmentname
   location            = var.environmentlocation
   size                = var.vmsize
@@ -16,7 +16,7 @@ resource "azurerm_linux_virtual_machine" "virtualmachine" {
 #   }
 
   os_disk {
-    name                 = "${var.prefix}-disk"
+    name                 = "${var.environmentname}-disk"
     caching              = "ReadWrite"
     storage_account_type = var.storageaccounttype
   }
