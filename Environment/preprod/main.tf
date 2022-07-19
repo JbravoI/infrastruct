@@ -42,15 +42,11 @@ module "service_plan" {
   resourcename        = azurerm_resource_group.resourcegroup
 }
 
-module "app_service" {
-  source              = "../../modules/appservice"
-  environmentlocation = var.location
+# Module to deploy AKS
+module "aks" {
+  source              = "../../modules/kubernetes"
   environmentname     = var.resource_group_name
-  skutier             = var.skutiers
-  skusize             = var.skusizes
-  resourcename        = azurerm_resource_group.resourcegroup
-}
+  environmentlocation = var.location
 
-# output "vm_public_name" {
-#   value = module.vm.public_ip_dns_name
-# }
+  depends_on = [module.vnet]
+}
