@@ -42,26 +42,11 @@ module "service_plan" {
   resourcename        = azurerm_resource_group.resourcegroup
 }
 
-module "app_service" {
-  source              = "../../modules/appservice"
-  environmentlocation = var.location
-  environmentname     = var.resource_group_name
-  skutier             = var.skutiers
-  skusize             = var.skusizes
-  resourcename        = azurerm_resource_group.resourcegroup
-}
-
 # Module to deploy AKS
 module "aks" {
-  source              = "./modules/kubernetes"
+  source              = "../../modules/kubernetes"
   environmentname     = var.resource_group_name
   environmentlocation = var.location
-  #   client_id                        = "your-service-principal-client-appid"
-  #   client_secret                    = "your-service-principal-client-password"
-#   prefix = "${var.resource_group_name}-prefix"
 
   depends_on = [module.vnet]
 }
-# output "vm_public_name" {
-#   value = module.vm.public_ip_dns_name
-# }
